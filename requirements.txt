@@ -1,0 +1,6 @@
+streamlit>=1.40,<2
+faster-whisper>=1.1,<2
+yt-dlp[default]>=2026.1
+
+# Deno supplies the JavaScript runtime required by modern YouTube extraction.
+deno>=2.9.8,<3

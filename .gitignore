@@ -1,0 +1,10 @@
+# Local files, never upload these to GitHub
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.streamlit/secrets.toml
+*.mp4
+*.wav
+ClipPilot_Clips.zip
+.DS_Store

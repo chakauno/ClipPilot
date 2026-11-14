@@ -1,0 +1,90 @@
+CLIPPILOT - WINDOWS PC EDITION (FREE)
+=====================================
+
+This ZIP contains a real browser-based app that can run on your Windows PC.
+It also contains the files needed to try hosting it online for free later.
+No paid AI API or TikTok account connection is required.
+
+OPTION A: USE IT ON YOUR WINDOWS PC (EASIEST)
+---------------------------------------------
+1. RIGHT-CLICK the downloaded ZIP > Extract All > Extract.
+   DO NOT run it directly from inside the ZIP.
+2. If you do not have Python 3.12, install it from:
+   https://www.python.org/downloads/
+   In the Windows installer, tick "Add python.exe to PATH".
+3. Double-click: 01_INSTALL_CLIPPILOT_WINDOWS.bat
+   - The installer puts Python packages in a private .venv folder.
+   - It checks FFmpeg, and can offer to install it via Windows Package Manager.
+   - If it asks you to restart the setup, close the window and run it again.
+4. Double-click: 02_START_CLIPPILOT.bat
+5. The app should open in Edge/Chrome at http://localhost:8501
+   (if not, type that address into your browser).
+6. Paste a YouTube video URL you own or are allowed to reuse, OR upload an
+   existing MP4/MOV file. Check the permission box, select 2 clips and 15 or
+   30 seconds, then click "Find my best clips".
+7. Watch each preview and click "Save clip". Check the Downloads folder.
+   The output is vertical 720 x 1280 MP4 for TikTok.
+8. Keep the black app window open while using ClipPilot; close it when done.
+
+FIRST RUN NOTES
+---------------
+- Python and FFmpeg must be installed once on your PC; they are free.
+- The speech-to-text model downloads on its first use (internet needed).
+- Processing a long video can be slow on your PC and uses CPU and disk space.
+- Some YouTube URLs cannot be retrieved because of YouTube access restrictions.
+  No host or link is guaranteed; use a video file you may legally process.
+- The highlight selection is a free transcript-based approximation: speech
+  moments are prioritized, not visual-only events. Review every result.
+- If the black window says a command is missing, run 03_CHECK_WINDOWS_SETUP.bat.
+
+OPTION B: PUT THE APP ONLINE FOR FREE (FOR PHONE ACCESS)
+--------------------------------------------------------
+This is optional. You DO NOT need GitHub or Streamlit to use it locally on PC.
+
+1. Sign up free at https://github.com/signup
+2. At https://github.com/new create a PRIVATE repository named clippilot.
+   Leave README initialization unchecked.
+3. On the new repo page click "uploading an existing file".
+4. From this extracted folder, upload these files and folders:
+   app.py
+   highlights.py
+   video_tools.py
+   requirements.txt
+   packages.txt
+   .streamlit (folder with config.toml)
+   .gitignore
+   (You can also upload the README and .bat files, but they are not needed
+    by the cloud host. Do NOT upload .venv.)
+5. Click "Commit changes". app.py must be in the repository ROOT.
+6. Sign into https://share.streamlit.io/ with GitHub.
+7. Click "Create app", choose the private clippilot repository, main file
+   app.py, and Python 3.12 in Advanced settings.
+8. In Advanced settings > Secrets enter the following, replacing the example:
+
+   APP_PASSWORD = "replace-with-your-own-strong-password"
+   CLIPPILOT_HOSTED = "1"
+
+   NEVER put the password in GitHub or your source code.
+9. Click Deploy. If it works, open your new *.streamlit.app address on iPhone.
+
+IMPORTANT: Streamlit's free plan is resource-limited. Video encoding and
+transcription can exceed its CPU/RAM limits. Hosting cannot guarantee it can
+retrieve every YouTube link. It is a possible free option, not a guaranteed
+free unlimited service. Start with 2-5 minute videos and 2 short clips.
+
+If you only want to use ClipPilot through your PC, follow OPTION A and skip B.
+
+RIGHTS AND PRIVACY
+------------------
+Only process videos you own or have permission to download, edit, and post.
+The app does not automatically upload to TikTok.
+Your files are processed locally in OPTION A, except the permitted YouTube
+video retrieval and the initial speech-model download, which use internet.
+Temporary video files may remain until the app removes them; do not put
+sensitive media into any public or shared deployment.
+
+TROUBLESHOOTING
+---------------
+Python installation: https://www.python.org/downloads/
+FFmpeg official page: https://ffmpeg.org/download.html
+Streamlit docs: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
